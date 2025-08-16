@@ -11,7 +11,7 @@ pipeline {
 
         stage ("Docker image") {
             steps {
-                sh " docker build irady/myapp . "
+                sh " docker build -t irady/myapp . "
             }
         }
 
