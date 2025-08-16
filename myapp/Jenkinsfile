@@ -23,7 +23,7 @@ pipeline {
 
         stage ("Run image") {
             steps {
-                sh "docker start -p 8888:8888 irady/myapp:latest"
+                sh "docker run -d -p 8888:8888 irady/myapp:latest"
             }
         }
     }
