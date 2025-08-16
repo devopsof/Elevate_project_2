@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage ("Git clone") {
             steps {
-                git url: "", branch: "main"
+                git url: "https://github.com/devopsof/Elevate_project_2.git", branch: "main"
             }
         }
 
