@@ -1,0 +1,30 @@
+pipeline {
+
+    agent {label "First"}
+
+    stages {
+        stage ("Git clone") {
+            steps {
+                git url: "", branch: "main"
+            }
+        }
+
+        stage ("Docker image") {
+            steps {
+                sh " docker build myapp . "
+            }
+        }
+
+        stage ("Dockerhub push") {
+            steps {
+                sh "docker push irady/myapp:latest"
+            }
+        }
+
+        stage ("Run image") {
+            steps {
+                sh "docker run -p 8888:8888 myapp:latest"
+            }
+        }
+    }
+}
