@@ -1,23 +1,30 @@
-# MyApp
+MyApp
 
-Nodejs demo app for running a cloud native Tekton Pipeline.
+A simple Node.js web app displaying random cat images using TheCatAPI. Dockerized for easy deployment with a Jenkins CI/CD pipeline.
 
-This app displays a random picture of a cat.
+Files
 
-## Build and run Nodejs app
+- app.js – Express server
+- index.html – Frontend page
+- Dockerfile – Docker setup
+- package.json & package-lock.json – Node dependencies
+- Jenkinsfile – CI/CD pipeline
 
-```bash
-npm install
-node app.js
-```
+Setup
 
-Open [http://localhost:3000/](http://localhost:3000/) in your web browser to
-view the running app.
+1. Clone repo:
+   git clone https://github.com/devopsof/Elevate_project_2.git
+2. Install dependencies:
+   npm install
+3. Run locally:
+   node app.js (http://localhost:3000)
 
-## Build and run Nodejs app on Kubernetes using a cloud native Tekton Pipeline
+Docker
 
-Follow the instructions in the [tekton/](tekton/README.md) directory.
+- Build: docker build -t myapp .
+- Run: docker run -d -p 8888:3000 myapp (http://localhost:8888)
 
-### OpenShift
+Notes
 
-If you are using an OpenShift environment, then follow the instructions in the [openshift/tekton/](openshift/tekton/README.md) directory.
+- Dockerfile exposes port 3000; map correctly with -p  
+- JSON files must list dependencies for npm install
